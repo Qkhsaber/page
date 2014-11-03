@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/test_gradient"
+    tools:context=".Lion" >
+
+    <ImageView
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="230dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="-100dp"
+        android:background="@drawable/map1" />
+
+    <TextView
+        android:id="@+id/we"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        
+        android:layout_alignParentRight="true"
+        android:paddingRight="5dp"
+        android:text="I can't love you more"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        
+        android:layout_marginTop="100dp"
+       
+        
+        android:background="@drawable/white00001"
+        android:visibility="visible" />
+
+</RelativeLayout>

